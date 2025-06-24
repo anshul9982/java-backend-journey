@@ -12,7 +12,8 @@ public class LoopingMastery {
         // while loop:
         int num = 20;
         while (num>=10 ){
-            System.out.println(num);
+            if(num%2==0){
+            System.out.println(num);}
             --num;
         }
         //do-while loop:
