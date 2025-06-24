@@ -1,3 +1,5 @@
+package chapter1;
+
 public class DataTypeShowcase {
     public static void main(String[] args) {
         byte smal = 10;

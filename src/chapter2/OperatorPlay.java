@@ -1,3 +1,5 @@
+package chapter2;
+
 public class OperatorPlay {
     public static void main(String[] args) {
         int num1 = 100;

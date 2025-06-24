@@ -1,3 +1,5 @@
+package chapter2;
+
 public class DecisionMaker {
     public static void main(String[] args) {
         int temprature = 40;

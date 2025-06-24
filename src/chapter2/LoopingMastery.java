@@ -1,3 +1,5 @@
+package chapter2;
+
 public class LoopingMastery {
     public static void main(String[] args) {
         //for loop:
