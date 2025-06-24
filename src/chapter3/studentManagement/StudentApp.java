@@ -2,23 +2,16 @@ package chapter3.studentManagement;
 
 public class StudentApp {
     public static void main(String[] args) {
-        student student1 = new student();
-        student student2 = new student();
-
-        student1.name = "Anshul";
-        student1.StudentId = 121;
-        student1.Major = "Computer Science";
-        student1.gpa = 8.5;
-
-        student2.name = "Vishal";
-        student2.StudentId = 120;
-        student2.Major = "Agriculture";
-        student2.gpa = 7.6;
-
+        Student student1 = new Student("Anshul", 121, "Computer Science", 8.5 );
+        Student student2 = new Student("Vishal", 120, "Agriculture", 7.6);
+        Student student3 = new Student();
         student1.study();
-        student1.StudentInfo();
+        student1.studentInfo();
 
         student2.study();
-        student2.StudentInfo();
+        student2.studentInfo();
+
+        student3.study();
+        student3.studentInfo();
     }
 }
