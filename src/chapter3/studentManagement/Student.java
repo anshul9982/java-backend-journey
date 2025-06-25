@@ -6,9 +6,13 @@ public class Student {
     private String major;
     private double gpa;
     private int creditsEnrolled;
+    static int nextStudentId =1000;
+    static int studentCount = 0;
+
     public Student(){
         gpa = 0.0;
-        studentId = 0;
+        this.studentId = nextStudentId++;
+        studentCount++;
         System.out.println("new student object is created");
     }
     public String getName(){
@@ -46,13 +50,18 @@ public class Student {
         else System.out.println("GPA not valid!");
     }
 
-    public Student(String name, int id, String major, double gpa, int creditsEnrolled){
+    public Student(String name, String major, double gpa, int creditsEnrolled){
         this.name = name;
-        this.studentId = id;
+        this.studentId = nextStudentId++;
         this.major = major;
         this.gpa = gpa;
         this.creditsEnrolled =creditsEnrolled;
+        studentCount++;
         System.out.println("object is being created with paramaterised constructor");
+    }
+
+    public static int getStudentCount(){
+        return studentCount;
     }
 
     public boolean isEligibleForScholarship(){
@@ -71,7 +80,7 @@ public class Student {
     }
 
     public Student(String name, double gpa){
-        this(name, 0, "undeclared", gpa, 0);
+        this(name, "undeclared", gpa, 0);
     }
 
     public void study(){

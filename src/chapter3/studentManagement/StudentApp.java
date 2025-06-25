@@ -2,9 +2,10 @@ package chapter3.studentManagement;
 
 public class StudentApp {
     public static void main(String[] args) {
-        Student student1 = new Student("Anshul", 121, "Computer Science", 8.5, 12 );
-        Student student2 = new Student("Vishal", 120, "Agriculture", 7.6, 10);
+        Student student1 = new Student("Anshul", "Computer Science", 8.5, 12 );
+        Student student2 = new Student("Vishal", "Agriculture", 7.6, 10);
         Student student3 = new Student();
+        Student student4 = new Student("Auysh", "BioTech", 8.5, 12);
 
         Course javaCourse = new Course("Intro to Java", "101", 3);
 
@@ -28,6 +29,11 @@ public class StudentApp {
             System.out.println(student2.getName() + " is eligible for a scholarship ");
         }
         else System.out.println(student2.getName()+" is not eligible for a scholarship");
+        student4.studentInfo();
+        System.out.println(Student.getStudentCount());
+        Student[] allStudents = {student1, student2, student3, student4};
+        University.welcome();
+        System.out.println("Average GPA of the university is : " + University.averageGpa(allStudents));
 
         javaCourse.displayCourseInfo();
 
