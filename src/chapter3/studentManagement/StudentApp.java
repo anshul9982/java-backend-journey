@@ -14,18 +14,20 @@ public class StudentApp {
         student1.updateMajor("Mathematics");
         student1.studentInfo();
         if(student1.isEligibleForScholarship()){
-            System.out.println(student1.name + " is eligible for a scholarship");
+            System.out.println(student1.getName() + " is eligible for a scholarship");
         }
-        else System.out.println(student1.name+" is not eligible for a scholarship");
+        else System.out.println(student1.getName()+" is not eligible for a scholarship");
 
+        student1.setGpa(9.0);
+        student1.studentInfo();
 
         student2.study();
         student2.studentInfo();
         student2.updateMajor("Physics", 8);
         if(student2.isEligibleForScholarship()){
-            System.out.println(student2.name + " is eligible for a scholarship ");
+            System.out.println(student2.getName() + " is eligible for a scholarship ");
         }
-        else System.out.println(student2.name+" is not eligible for a scholarship");
+        else System.out.println(student2.getName()+" is not eligible for a scholarship");
 
         javaCourse.displayCourseInfo();
 
