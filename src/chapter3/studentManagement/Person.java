@@ -19,7 +19,7 @@ public class Person {
         this.name = name;
     }
 
-    public void displayPersonInfo(){
+    public void displayInfo(){
         System.out.println("Name of the person is: "+ getName());
     }
 

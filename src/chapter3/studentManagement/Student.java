@@ -69,6 +69,11 @@ public class Student extends Person {
         major = newMajor;
         System.out.println("Major updated to :"+ newMajor);
     }
+    @Override
+    public void displayInfo() {
+        super.displayInfo();
+        System.out.println("gpa: " + getGpa() + "Major: "+ getMajor());
+    }
 
     public void updateMajor(String newMajor, int newCreditsEnrolled){
         this.creditsEnrolled = newCreditsEnrolled;
