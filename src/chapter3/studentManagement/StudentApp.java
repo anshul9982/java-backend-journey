@@ -36,6 +36,7 @@ public class StudentApp {
         System.out.println("Average GPA of the university is : " + University.averageGpa(allStudents));
 
         javaCourse.displayCourseInfo();
+        student2.displayPersonInfo();
 
         //student3.study();
         //student3.studentInfo();

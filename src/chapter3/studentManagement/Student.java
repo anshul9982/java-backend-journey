@@ -1,7 +1,6 @@
 package chapter3.studentManagement;
 
-public class Student {
-    private String name;
+public class Student extends Person {
     private int studentId;
     private String major;
     private double gpa;
@@ -15,9 +14,7 @@ public class Student {
         studentCount++;
         System.out.println("new student object is created");
     }
-    public String getName(){
-        return this.name;
-    }
+
     public int getStudentId(){
         return this.studentId;
     }
@@ -51,7 +48,7 @@ public class Student {
     }
 
     public Student(String name, String major, double gpa, int creditsEnrolled){
-        this.name = name;
+        super(name);
         this.studentId = nextStudentId++;
         this.major = major;
         this.gpa = gpa;
@@ -84,10 +81,10 @@ public class Student {
     }
 
     public void study(){
-        System.out.println("Student "+this.name+" is studying "+this.major);
+        System.out.println("Student "+getName()+" is studying "+this.major);
     }
     public void studentInfo(){
-        System.out.println("Name :"+this.name+", ID: "+this.studentId+", Major: "+this.major+", GPA: "+this.gpa +" credits enrolled: "+this.creditsEnrolled );
+        System.out.println("Name :"+getName()+", ID: "+this.studentId+", Major: "+this.major+", GPA: "+this.gpa +" credits enrolled: "+this.creditsEnrolled );
     }
 }
 
