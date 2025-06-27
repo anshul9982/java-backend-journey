@@ -1,6 +1,6 @@
 package chapter3.studentManagement;
 
-public class Student extends Person {
+public class Student extends Person implements Enrollable {
     private int studentId;
     private String major;
     private double gpa;
@@ -13,6 +13,29 @@ public class Student extends Person {
         this.studentId = nextStudentId++;
         studentCount++;
         System.out.println("new student object is created");
+    }
+    @Override
+    public void enrollInCourse(String courseName){
+        System.out.println(getName() + " has enrolled in " + courseName);
+    }
+    @Override
+    public void dropCourse(String courseName){
+        System.out.println(getName() + " has dropped the course in " + courseName);
+    }
+
+    @Override
+    public int getMaxCourseAllowed(){
+        return 5;
+    }
+
+    @Override
+    public void showEnrollment(){
+        System.out.println(getName()+ " is currently enrolled in "+ University.UNIVERSITY_NAME);
+    }
+
+    @Override
+    public void performRole(){
+        System.out.println("Student " + getName() + " is studying");
     }
 
     public int getStudentId(){

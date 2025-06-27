@@ -40,24 +40,13 @@ public class StudentApp {
         javaCourse.displayCourseInfo();
         student2.displayInfo();
 
-        ArrayList<Person> people = new ArrayList<>();
-        people.add(new Person("John Doe"));
-        people.add(new Student("Jane Smith", "Computer Science", 9.0, 15));
-        people.add(new Person("Alice Wonderland"));
-        people.add(new Student("Bob Builder", "Engineering", 7.8, 10));
+        student2.performRole();
+        student1.enrollInCourse("Data Structures");
+        student1.dropCourse("Networking");
+        System.out.println(student2.getName() + "can take up to " + student2.getMaxCourseAllowed()+ "courses");
+        student2.showEnrollment();
 
-        for (Person person : people) {
-            person.displayInfo();
 
-            if (person instanceof Student) {
-                Student student = (Student) person;
-                System.out.println("Student ID: " + student.getStudentId());
-                if (student.isEligibleForScholarship()) {
-                    System.out.println("🎓 Eligible for scholarship!");
-                }
-            }
-            System.out.println();
-        }
 
         //student3.study();
         //student3.studentInfo();

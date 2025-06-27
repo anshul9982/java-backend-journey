@@ -1,11 +1,13 @@
 package chapter3.studentManagement;
 
-public class Person {
+public abstract class Person {
     private String name;
 
     public Person(){
         this.name = null;
     }
+
+    public abstract void performRole();
 
     public Person(String name){
         this.name = name;
