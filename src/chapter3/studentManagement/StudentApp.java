@@ -23,6 +23,9 @@ public class StudentApp {
 
         student1.setGpa(9.0);
         student1.studentInfo();
+        student1.setStatus(StudentStatus.ACTIVE);
+
+        System.out.println(student1.getStatus());
 
         student2.study();
         student2.studentInfo();
@@ -39,12 +42,38 @@ public class StudentApp {
 
         javaCourse.displayCourseInfo();
         student2.displayInfo();
+        System.out.println(student2.getStudentId());
 
         student2.performRole();
         student1.enrollInCourse("Data Structures");
         student1.dropCourse("Networking");
         System.out.println(student2.getName() + "can take up to " + student2.getMaxCourseAllowed()+ "courses");
         student2.showEnrollment();
+        student2.setStatus(StudentStatus.GRADUATED);
+        student3.setStatus(StudentStatus.SUSPENDED);
+
+        Student[] students = {student1, student2, student3};
+
+        for(Student student : students){
+            switch (student.getStatus()){
+                case ACTIVE :
+                    System.out.println(student.getName()+ " is studying");
+                    break;
+                case INACTIVE:
+                    System.out.println(student.getName() + " is yet to take admission");
+                    break;
+                case GRADUATED:
+                    System.out.println(student.getName() + " has graduated successfully!");
+                    break;
+                case SUSPENDED:
+                    System.out.println(student.getName()+ "is suspended unfortunately");
+                    break;
+                default:
+                    System.out.println("bruh!");
+
+            }
+        }
+
 
 
 

@@ -1,19 +1,23 @@
 package chapter3.studentManagement;
 
 public class Student extends Person implements Enrollable {
-    private int studentId;
+    private final int studentId;
     private String major;
     private double gpa;
     private int creditsEnrolled;
     static int nextStudentId =1000;
     static int studentCount = 0;
+    public static final int MAX_STUDENT_AGE = 100;
+    private StudentStatus status;
 
     public Student(){
+        status = StudentStatus.ACTIVE;
         gpa = 0.0;
         this.studentId = nextStudentId++;
         studentCount++;
         System.out.println("new student object is created");
     }
+
     @Override
     public void enrollInCourse(String courseName){
         System.out.println(getName() + " has enrolled in " + courseName);
@@ -72,12 +76,23 @@ public class Student extends Person implements Enrollable {
 
     public Student(String name, String major, double gpa, int creditsEnrolled){
         super(name);
+        status = StudentStatus.ACTIVE;
         this.studentId = nextStudentId++;
         this.major = major;
         this.gpa = gpa;
         this.creditsEnrolled =creditsEnrolled;
         studentCount++;
         System.out.println("object is being created with parameterized constructor");
+    }
+
+    public StudentStatus getStatus(){
+        return status;
+    }
+
+
+
+    public void setStatus(StudentStatus status) {
+        this.status = status;
     }
 
     public static int getStudentCount(){
