@@ -77,7 +77,7 @@ public class Student extends Person implements Enrollable {
         this.gpa = gpa;
         this.creditsEnrolled =creditsEnrolled;
         studentCount++;
-        System.out.println("object is being created with paramaterised constructor");
+        System.out.println("object is being created with parameterized constructor");
     }
 
     public static int getStudentCount(){
