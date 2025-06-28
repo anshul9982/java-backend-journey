@@ -67,11 +67,12 @@ public class Student extends Person implements Enrollable {
         }
     }
 
-    public void setGpa(double newGPA){
+    public void setGpa(double newGPA)throws InvalidStudentDataException{
         if(newGPA>0.0 && newGPA<=10.0){
             this.gpa = newGPA;
         }
-        else System.out.println("GPA not valid!");
+        else{
+        throw new InvalidStudentDataException("you given gpa : " + newGPA+ " is not valid");}
     }
 
     public Student(String name, String major, double gpa, int creditsEnrolled){
@@ -110,7 +111,7 @@ public class Student extends Person implements Enrollable {
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println("gpa: " + getGpa() + "Major: "+ getMajor());
+        System.out.println( "Name : "+ getName()+ " gpa: " + getGpa() + " Major: "+ getMajor());
     }
 
     public void updateMajor(String newMajor, int newCreditsEnrolled){
@@ -122,12 +123,20 @@ public class Student extends Person implements Enrollable {
     public Student(String name, double gpa){
         this(name, "undeclared", gpa, 0);
     }
+    @Override
+    public String toString() {
+        return super.toString().replace("]",
+                ", studentId=" + studentId +
+                        ", major=" + major +
+                        ", gpa=" + gpa +
+                        ", creditsEnrolled=" + creditsEnrolled +
+                        ", status=" + status.getDescription() + "]"); // <--- Add this line
+    }
 
     public void study(){
         System.out.println("Student "+getName()+" is studying "+this.major);
     }
-    public void studentInfo(){
-        System.out.println("Name :"+getName()+", ID: "+this.studentId+", Major: "+this.major+", GPA: "+this.gpa +" credits enrolled: "+this.creditsEnrolled );
+
     }
-}
+
 

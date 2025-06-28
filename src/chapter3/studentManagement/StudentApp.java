@@ -1,5 +1,6 @@
 package chapter3.studentManagement;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class StudentApp {
@@ -13,28 +14,31 @@ public class StudentApp {
 
 
         student1.study();
-        student1.studentInfo();
+
         student1.updateMajor("Mathematics");
-        student1.studentInfo();
+
         if(student1.isEligibleForScholarship()){
             System.out.println(student1.getName() + " is eligible for a scholarship");
         }
         else System.out.println(student1.getName()+" is not eligible for a scholarship");
 
-        student1.setGpa(9.0);
-        student1.studentInfo();
+        try {
+            student1.setGpa(9.0);
+            student1.setGpa(11.0);
+        }catch (InvalidStudentDataException i){
+            System.out.println(i.getMessage());
+        }
+
         student1.setStatus(StudentStatus.ACTIVE);
 
-        System.out.println(student1.getStatus());
-
         student2.study();
-        student2.studentInfo();
+
         student2.updateMajor("Physics", 8);
         if(student2.isEligibleForScholarship()){
             System.out.println(student2.getName() + " is eligible for a scholarship ");
         }
         else System.out.println(student2.getName()+" is not eligible for a scholarship");
-        student4.studentInfo();
+
         System.out.println(Student.getStudentCount());
         Student[] allStudents = {student1, student2, student3, student4};
         University.welcome();
@@ -44,6 +48,8 @@ public class StudentApp {
         student2.displayInfo();
         System.out.println(student2.getStudentId());
 
+
+
         student2.performRole();
         student1.enrollInCourse("Data Structures");
         student1.dropCourse("Networking");
@@ -51,8 +57,45 @@ public class StudentApp {
         student2.showEnrollment();
         student2.setStatus(StudentStatus.GRADUATED);
         student3.setStatus(StudentStatus.SUSPENDED);
-
+        double sum = 0;
         Student[] students = {student1, student2, student3};
+        try {
+            for (Student student : students){
+                sum += student.getGpa();
+            }
+
+            System.out.println("average of gpa of top 3 is: " + sum/students.length);
+
+        }catch (ArithmeticException e){
+            System.out.println("this cant be divided by zero" + e.getMessage());
+        }catch (ArrayIndexOutOfBoundsException a){
+            System.out.println("Array cannot be empty" + a.getMessage());
+        }
+//        System.out.println("\n--- Simulating IOException with finally ---");
+//        try {
+//            System.out.println("Attempting to save student data to file...");
+//
+//            throw new IOException("Simulated network connection lost during save!");
+//
+//        } catch (IOException e) {
+//            System.err.println("Caught a file/IO error: " + e.getMessage());
+//        } finally {
+//            System.out.println("Finally block: Ensuring file resources are closed.");
+//        }
+//        System.out.println("Program continues after simulated file operation.");
+
+        System.out.println("\n--- Demonstrating Polymorphism with ArrayList<Enrollable> ---");
+        ArrayList<Enrollable> enrollables = new ArrayList<>();
+        enrollables.add(student1); // Student implements Enrollable
+
+// For now, just using students:
+        enrollables.add(student2);
+        enrollables.add((javaCourse)); // Assuming Course implements Enrollable
+
+        for (Enrollable item : enrollables) {
+            item.enrollInCourse("Advanced Topics");
+            item.showEnrollment();
+        }
 
         for(Student student : students){
             switch (student.getStatus()){
@@ -78,6 +121,6 @@ public class StudentApp {
 
 
         //student3.study();
-        //student3.studentInfo();
+
     }
 }

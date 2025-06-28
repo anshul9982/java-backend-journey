@@ -1,6 +1,6 @@
 package chapter3.studentManagement;
 
-public class Course {
+public class Course implements Enrollable {
     private String courseName;
     private String courseCode;
     private int credits;
@@ -16,6 +16,20 @@ public class Course {
     public int getCredits(){
         return this.credits;
     }
+    @Override
+    public void enrollInCourse(String s){
+
+    }
+    @Override
+    public void dropCourse(String s){
+
+    }
+
+    @Override
+    public int getMaxCourseAllowed(){
+        return 1;
+    }
+
 
     public Course( String courseName, String courseCode, int credits){
         this.courseName = courseName;
