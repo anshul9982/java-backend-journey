@@ -15,7 +15,7 @@ public class Student extends Person implements Enrollable {
         gpa = 0.0;
         this.studentId = nextStudentId++;
         studentCount++;
-        System.out.println("new student object is created");
+        //System.out.println("new student object is created");
     }
 
     @Override
@@ -83,7 +83,7 @@ public class Student extends Person implements Enrollable {
         this.gpa = gpa;
         this.creditsEnrolled =creditsEnrolled;
         studentCount++;
-        System.out.println("object is being created with parameterized constructor");
+        //System.out.println("object is being created with parameterized constructor");
     }
 
     public StudentStatus getStatus(){
