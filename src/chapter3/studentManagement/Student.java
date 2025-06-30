@@ -1,5 +1,7 @@
 package chapter3.studentManagement;
 
+import java.util.HashSet;
+
 public class Student extends Person implements Enrollable {
     private final int studentId;
     private String major;
@@ -17,14 +19,20 @@ public class Student extends Person implements Enrollable {
         studentCount++;
         //System.out.println("new student object is created");
     }
+    
+    HashSet<String> coursesEnrolled = new HashSet<>();
+
 
     @Override
     public void enrollInCourse(String courseName){
         System.out.println(getName() + " has enrolled in " + courseName);
+        coursesEnrolled.add(courseName);
+        
     }
     @Override
     public void dropCourse(String courseName){
         System.out.println(getName() + " has dropped the course in " + courseName);
+        coursesEnrolled.remove(courseName);
     }
 
     @Override
