@@ -25,14 +25,22 @@ public class Student extends Person implements Enrollable {
 
     @Override
     public void enrollInCourse(String courseName){
-        System.out.println(getName() + " has enrolled in " + courseName);
-        coursesEnrolled.add(courseName);
+        if (coursesEnrolled.contains(courseName)) {
+            System.out.println(getName() + " is already enrolled in the course : " + courseName);
+        }
+        else{
+            coursesEnrolled.add(courseName);
+            System.out.println(getName()+" has been enrolled in : " + courseName);
+        }
         
     }
     @Override
     public void dropCourse(String courseName){
-        System.out.println(getName() + " has dropped the course in " + courseName);
-        coursesEnrolled.remove(courseName);
+        if (coursesEnrolled.contains(courseName)) {
+            coursesEnrolled.remove(courseName);
+            System.out.println(getName() + " has dropped the course in " + courseName);
+        }
+        else System.out.println(getName() + " is not enlrolled in course : "+ courseName);
     }
 
     @Override
@@ -43,6 +51,15 @@ public class Student extends Person implements Enrollable {
     @Override
     public void showEnrollment(){
         System.out.println(getName()+ " is currently enrolled in "+ University.UNIVERSITY_NAME);
+        if (coursesEnrolled.isEmpty()) {
+            System.out.println(getName() + " is not enrolled in any courses");
+        }
+        else{
+            System.out.println(getName()+" is enrolled in following courses : ");
+                for(String course : coursesEnrolled){
+                    System.out.println("--" + course);
+                }
+        }
     }
 
     @Override
@@ -119,7 +136,7 @@ public class Student extends Person implements Enrollable {
     @Override
     public void displayInfo() {
         super.displayInfo();
-        System.out.println( "Name : "+ getName()+ " gpa: " + getGpa() + " Major: "+ getMajor());
+        System.out.println( "Name : "+ getName()+ " gpa: " + getGpa() + " Major: "+ getMajor() + " ID : " + getStudentId());
     }
 
     public void updateMajor(String newMajor, int newCreditsEnrolled){

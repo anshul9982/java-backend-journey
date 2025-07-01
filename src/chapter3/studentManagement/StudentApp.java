@@ -60,11 +60,14 @@ public class StudentApp {
 
         student2.performRole();
         student1.enrollInCourse("Data Structures");
-        student1.dropCourse("Networking");
+        student1.enrollInCourse("Networking");
+        student1.enrollInCourse("Networking");
+        student1.dropCourse("Data Structures");
         System.out.println(student2.getName() + " can take up to " + student2.getMaxCourseAllowed() + " courses");
         student2.showEnrollment();
         student2.setStatus(StudentStatus.GRADUATED);
         student3.setStatus(StudentStatus.SUSPENDED);
+        student3.displayInfo();
         double sum = 0;
         Student[] students = { student1, student2, student3 };
         try {
@@ -140,8 +143,11 @@ public class StudentApp {
 
         }
         System.out.println("Student log file operation completed (resources automatically closed).");
+        
+       System.out.println(University.getStudentById(1002).getName());
 
     }
+
 
     // student3.study();
 
