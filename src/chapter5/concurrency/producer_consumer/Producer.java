@@ -11,7 +11,7 @@ public class Producer implements Runnable {
 
     @Override
     public void run(){
-        for(int i = 1; i<itemCount; i++){
+        for(int i = 1; i<=itemCount; i++){
         try {
             resource.put("Item no." + i);
             }
