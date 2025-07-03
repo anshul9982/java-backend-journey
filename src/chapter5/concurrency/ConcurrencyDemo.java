@@ -1,4 +1,4 @@
-package chapter5;
+package chapter5.concurrency;
 
 public class ConcurrencyDemo {
     public static void main(String[] args) {
