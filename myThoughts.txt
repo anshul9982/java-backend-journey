@@ -1,0 +1,3 @@
+hey everyone! 
+ just testing out writer in java 
+ I hope it works fine.
