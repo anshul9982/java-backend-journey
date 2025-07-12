@@ -1,6 +1,7 @@
 package chapter11;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class ArrayPerformanceDemo {
@@ -51,7 +52,15 @@ public class ArrayPerformanceDemo {
         long endTime4 = System.currentTimeMillis();
         long duration3 = endTime4 - startTime4;
         System.out.println("removing took : " + duration3);
-        
+
+        long stime5 = System.currentTimeMillis();
+        for (int index = 0; index < NUM_OPERATIONS; index++) {
+            getByIndex.remove(getByIndex.size()/2);
+            
+        }
+        long etime5 = System.currentTimeMillis();
+        System.out.println("time for removing from middle: " + (etime5-stime5));
+
 
 
     }
