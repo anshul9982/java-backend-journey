@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -36,7 +37,20 @@ public class IntermediateOperationsExercise {
                                         .skip(2)
                                         .limit(3)
                                         .collect(Collectors.toList());
-        System.out.println(stream);          
+        System.out.println(stream);
+        
+        System.out.println();
+        System.out.println("---------------///////////////------------------");
+        System.out.println();
+
+
+        List<String> test1 = list.stream()
+                                .filter(s->s.length()>3)
+                                .peek(System.out::println)
+                                .map(String::toLowerCase)
+                                .peek(System.out::println)
+                                .collect(Collectors.toList());
+        System.out.println(test1);
                                         
                             
 
